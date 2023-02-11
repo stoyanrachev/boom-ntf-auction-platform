@@ -1,4 +1,4 @@
-function Logo(props) {
+export default function Logo(props) {
   return (
     <>
       {props.type === "muted" ? (
@@ -9,5 +9,3 @@ function Logo(props) {
     </>
   );
 }
-
-export default Logo;
