@@ -1,7 +1,7 @@
-function Logo({ type }) {
+function Logo(props) {
   return (
     <>
-      {type === "muted" ? (
+      {props.type === "muted" ? (
         <img src="/images/logo-muted.svg" />
       ) : (
         <img src="/images/logo.svg" />
