@@ -1,0 +1,26 @@
+@use "../../styles/colors";
+
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    margin-left: 0.8rem;
+    line-height: .5rem;
+}
+
+.name {
+    font-weight: 900;
+    font-size: 1rem;
+    color: colors.$text_primary;
+    line-height: 1rem;
+}
+
+.info {
+    line-height: 1rem;
+    font-weight: bold;
+    font-size: 0.875rem;
+    color: colors.$secondary_main;
+}
