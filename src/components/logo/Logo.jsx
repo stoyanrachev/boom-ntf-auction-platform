@@ -1,7 +1,7 @@
-export default function Logo(props) {
+export default function Logo({type}) {
   return (
     <>
-      {props.type === "muted" ? (
+      {type === "muted" ? (
         <img src="/images/logo-muted.svg" />
       ) : (
         <img src="/images/logo.svg" />
