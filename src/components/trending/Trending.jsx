@@ -10,7 +10,7 @@ import {
 
 import Card from "../card/Card";
 
-export default function Trending() {
+export default function Trending({cards=[]}) {
   const cardsArr = [
     {
       name: "Ivy",
@@ -84,7 +84,7 @@ export default function Trending() {
         </Grid>
       </Grid>
       <Grid container spacing={2}>
-        {cardsArr.slice(0, 4).map((card, index) => (
+        {cards.slice(0, 4).map((card, index) => (
           <Grid item md={3} key={index}>
             <Card {...card} />
           </Grid>
