@@ -62,29 +62,31 @@ export default function Trending({ cards = [] }) {
     },
   ];
   return (
-    <Container>
-      <Grid container>
-        <Grid item xs={10}>
-          <h1 className={styles.title}>Trending</h1>
-        </Grid>
-        <Grid item xs={2}  sx={{display: "flex"}}>
-          <FormControl fullWidth className={styles.select} size={"small"}>
-            <InputLabel id="select-label">Sort By</InputLabel>
-            <Select labelId="select-label">
-              <MenuItem value="Today">Today</MenuItem>
-              <MenuItem value="This week">This week</MenuItem>
-              <MenuItem value="This month">This month</MenuItem>
-            </Select>
-          </FormControl>
-        </Grid>
-      </Grid>
-      <Grid container spacing={2}>
-        {cards.slice(0, 4).map((card, index) => (
-          <Grid item md={3} key={index}>
-            <Card {...card} />
+    <div className={styles.wrapper}>
+      <Container className={styles.container} maxWidth="xl">
+        <Grid container>
+          <Grid item xs={10}>
+            <h1 className={styles.title}>Trending</h1>
           </Grid>
-        ))}
-      </Grid>
-    </Container>
+          <Grid item xs={2} sx={{ display: "flex" }}>
+            <FormControl fullWidth className={styles.select} size={"small"}>
+              <InputLabel id="select-label">Sort By</InputLabel>
+              <Select labelId="select-label">
+                <MenuItem value="Today">Today</MenuItem>
+                <MenuItem value="This week">This week</MenuItem>
+                <MenuItem value="This month">This month</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+        </Grid>
+        <Grid container spacing={2}>
+          {cards.slice(0, 4).map((card, index) => (
+            <Grid item md={3} key={index}>
+              <Card {...card} />
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+    </div>
   );
 }
