@@ -20,7 +20,7 @@ export default function Cart({
     avatar: {
       url: "/images/avatar.png",
     },
-    verified: "Boolean",
+    verified: true,
   },
   price = "12.2",
   currency = "ETH",
