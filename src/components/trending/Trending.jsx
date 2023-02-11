@@ -10,7 +10,7 @@ import {
 
 import Card from "../card/Card";
 
-export default function Trending({cards=[]}) {
+export default function Trending({ cards = [] }) {
   const cardsArr = [
     {
       name: "Ivy",
@@ -63,16 +63,11 @@ export default function Trending({cards=[]}) {
   ];
   return (
     <Container>
-      <Grid
-        container
-        direction="row"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Grid item>
+      <Grid container>
+        <Grid item xs={10}>
           <h1 className={styles.title}>Trending</h1>
         </Grid>
-        <Grid item sx={{ minWidth: 220 }}>
+        <Grid item xs={2}  sx={{display: "flex"}}>
           <FormControl fullWidth className={styles.select} size={"small"}>
             <InputLabel id="select-label">Sort By</InputLabel>
             <Select labelId="select-label">
