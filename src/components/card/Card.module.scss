@@ -1,0 +1,31 @@
+@use "../../styles/colors";
+
+.card {
+  background-color: colors.$background_paper !important;
+}
+
+.title {
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+}
+.likes {
+  color: colors.$secondary_main !important;
+  background-color: rgba(colors.$secondary_main, 0.18) !important;
+  border-color: colors.$secondary_main !important;
+  border-width: 2px !important;
+  font-size: 0.875rem !important;
+  svg {
+    color: colors.$secondary_main !important;
+  }
+}
+.media {
+    margin: 0 15px;
+}
+.price {
+  color: colors.$secondary_main !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+}
+.grid-flex {
+  display: flex;
+}
