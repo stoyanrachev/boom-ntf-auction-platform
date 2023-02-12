@@ -64,11 +64,16 @@ export default function Trending({ cards = [] }) {
   return (
     <div className={styles.wrapper}>
       <Container className={styles.container} maxWidth="xl">
-        <Grid container>
-          <Grid item xs={10}>
+        <Grid
+          container
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          <Grid item>
             <h1 className={styles.title}>Trending</h1>
           </Grid>
-          <Grid item xs={2} sx={{ display: "flex" }}>
+          <Grid item sx={{ minWidth: 220 }}>
             <FormControl fullWidth className={styles.select} size={"small"}>
               <InputLabel id="select-label">Sort By</InputLabel>
               <Select labelId="select-label">
