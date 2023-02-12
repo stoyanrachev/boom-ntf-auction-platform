@@ -3,7 +3,7 @@ import { Grid } from "@mui/material"
 
 export default function HowStep({number, title, description}){
     return (
-        <div className={styles.howSteps}>
+        <div className={styles.how}>
             <Grid container>
                 <Grid 
                     className={styles.number}
