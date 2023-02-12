@@ -1,0 +1,20 @@
+@use "../../styles/colors";
+
+.Footer {
+    background-color: colors.$background_paper;
+    padding: 1.125rem 0;
+}
+
+.menuItem {
+    color: colors.$text_primary !important;
+    font-size: 0.875rem !important;
+    text-transform: none !important;
+    padding: 0 0 0 20px !important;
+}
+
+.rights {
+    color: colors.$text_secondary;
+    font-size: 0.875rem;
+    width: 100%;
+    text-align: center;
+}

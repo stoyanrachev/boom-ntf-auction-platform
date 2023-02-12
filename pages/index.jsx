@@ -4,6 +4,7 @@ import User from "../src/components/user/User";
 import Card from "../src/components/card/Card";
 import Trending from "../src/components/trending/Trending";
 import Auctions from "../src/components/auctions/Auctions";
+import Footer from "../src/components/footer/Footer";
 
 export default function Index() {
   return (
@@ -20,6 +21,7 @@ export default function Index() {
       <Card />
       <Trending />
       <Auctions />
+      <Footer />
     </>
   );
 }

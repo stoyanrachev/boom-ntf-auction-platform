@@ -89,7 +89,7 @@ export default function Auctions({ cards = [] }) {
           </Grid>
         </Grid>
         <Grid container spacing={2}>
-          {cardsArr.slice(0, 4).map((card, index) => (
+          {cards.slice(0, 4).map((card, index) => (
             <Grid item md={3} key={index}>
               <Card {...card} />
             </Grid>
