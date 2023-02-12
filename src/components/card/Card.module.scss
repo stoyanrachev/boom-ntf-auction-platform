@@ -2,6 +2,9 @@
 
 .card {
   background-color: colors.$background_paper !important;
+  &.live {
+    background-color: rgba(colors.$secondary_main, 0.15) !important;
+  }
 }
 
 .title {
@@ -19,7 +22,7 @@
   }
 }
 .media {
-    padding: 0 15px;
+  border-radius: 15px;
 }
 .price {
   color: colors.$secondary_main !important;
@@ -28,4 +31,50 @@
 }
 .grid-flex {
   display: flex;
+}
+
+.relative {
+  position: relative;
+  padding: 0 15px;
+}
+
+.badge {
+  position: absolute !important;
+  top: 0.5rem;
+  left: 1.5rem;
+  color: colors.$background_paper !important;
+  background-color: colors.$secondary_main !important;
+  width: 75px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 7px;
+  align-items: center !important;
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  span {
+    font-weight: 700;
+    font-size: 0.875rem;
+    position: absolute;
+    display: block;
+    top: 58%;
+    left: -50%;
+  }
+}
+
+.countdown {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  width: calc(100% - 30px);
+  background-color: colors.$secondary_main !important;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  text-align: center;
+  color: colors.$background_paper !important;
+  font-weight: 700;
+  padding: 0.2rem 0;
 }

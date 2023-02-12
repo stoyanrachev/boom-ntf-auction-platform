@@ -1,4 +1,4 @@
-import styles from "./Trending.module.scss";
+import styles from "./Auctions.module.scss";
 import {
   FormControl,
   Grid,
@@ -10,7 +10,7 @@ import {
 
 import Card from "../card/Card";
 
-export default function Trending({ cards = [] }) {
+export default function Auctions({ cards = [] }) {
   const cardsArr = [
     {
       name: "Ivy",
@@ -23,6 +23,7 @@ export default function Trending({ cards = [] }) {
       mediaUrl: "images/nft.jpg",
       price: 1,
       currency: "ETH",
+      timeLeft: 1000000,
     },
     {
       name: "Judie",
@@ -35,6 +36,7 @@ export default function Trending({ cards = [] }) {
       mediaUrl: "images/nft.jpg",
       price: 2.3,
       currency: "ETH",
+      timeLeft: 1000000,
     },
     {
       name: "Juniper",
@@ -47,6 +49,7 @@ export default function Trending({ cards = [] }) {
       mediaUrl: "images/nft.jpg",
       price: 5,
       currency: "ETH",
+      timeLeft: 1000000,
     },
     {
       name: "Maple",
@@ -59,6 +62,7 @@ export default function Trending({ cards = [] }) {
       mediaUrl: "images/nft.jpg",
       price: 10,
       currency: "ETH",
+      timeLeft: 1000000,
     },
   ];
   return (
@@ -71,7 +75,7 @@ export default function Trending({ cards = [] }) {
           alignItems="center"
         >
           <Grid item>
-            <h1 className={styles.title}>Trending</h1>
+            <h1 className={styles.title}>🔥 Live Auctions</h1>
           </Grid>
           <Grid item sx={{ minWidth: 220 }}>
             <FormControl fullWidth className={styles.select} size={"small"}>

@@ -1,16 +1,19 @@
 import styles from "./Card.module.scss";
 import CardBox from "@mui/material/Card";
 import {
+  Container,
+  Grid,
   CardMedia,
   CardContent,
   CardHeader,
   Chip,
-  Grid,
   Badge,
 } from "@mui/material";
 import millify from "millify";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Avatar from "../avatar/Avatar";
+import Countdown from "react-countdown";
+import LiveIcon from "@mui/icons-material/FiberManualRecord";
 
 export default function Cart({
   name = "String",
@@ -24,15 +27,29 @@ export default function Cart({
   },
   price = "12.2",
   currency = "ETH",
+  timeLeft = 1000000,
 }) {
   return (
-    <CardBox className={styles.card}>
+    <CardBox className={`${styles.card} ${timeLeft && styles.live}`}>
       <CardHeader
         avatar={
           <Avatar size="33px" url={user.avatar.url} verified={user.verified} />
         }
       />
-      <CardMedia className={styles.media} component="img" image={mediaUrl} />
+      <div className={styles.relative}>
+        <CardMedia className={styles.media} component="img" image={mediaUrl} />
+        {timeLeft && (
+          <Grid>
+            <Badge className={styles.badge} badgeContent={"Live".toUpperCase()}>
+              <LiveIcon />
+            </Badge>
+            <div className={styles.countdown}>
+              <Countdown date={Date.now() + timeLeft} />
+            </div>
+          </Grid>
+        )}
+      </div>
+
       <CardContent>
         <Grid
           container
