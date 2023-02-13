@@ -7,6 +7,7 @@ import Auctions from "../src/components/auctions/Auctions";
 import Footer from "../src/components/footer/Footer";
 import How from "../src/components/how/How";
 import Featured from "../src/components/featured/Featured";
+import TopCollectors from "../src/components/collectors/TopCollectors";
 
 export default function Index() {
   return (
@@ -58,6 +59,36 @@ export default function Index() {
               "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?w=500&h=500",
             title: "Basketball",
             href: "/about",
+          },
+        ]}
+      />
+      <TopCollectors
+        collectors={[
+          {
+            name: "Name 1",
+            nftsCount: 20,
+            avatar: "/images/avatar.png",
+            verified: true,
+          }, {
+            name: "Name 1",
+            nftsCount: 20,
+            avatar: "/images/avatar.png",
+            verified: true,
+          }, {
+            name: "Name 1",
+            nftsCount: 20,
+            avatar: "/images/avatar.png",
+            verified: true,
+          }, {
+            name: "Name 1",
+            nftsCount: 20,
+            avatar: "/images/avatar.png",
+            verified: true,
+          }, {
+            name: "Name 1",
+            nftsCount: 20,
+            avatar: "/images/avatar.png",
+            verified: true,
           },
         ]}
       />

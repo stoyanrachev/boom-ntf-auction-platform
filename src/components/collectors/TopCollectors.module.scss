@@ -1,0 +1,20 @@
+@use "../../styles/colors.scss";
+
+.topcollectors {
+    background-color: rgba(colors.$primary_main, 10%);
+    padding-bottom: 100px;
+}
+
+.select {
+  align-self: center !important;
+  svg {
+    color: colors.$text_primary;
+  }
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 3.657rem;
+  margin-bottom: 2.875rem;
+}
