@@ -4,8 +4,8 @@ import Logo from "../logo/Logo";
 
 export default function Footer() {
   return (
-    <div className={styles.Footer}>
-      <Container>
+    <div className={styles.footer}>
+      <Container  maxWidth="xl">
         <Grid container>
           <Grid item md={4}>
             <Logo type={"muted"} />

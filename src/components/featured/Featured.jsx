@@ -7,7 +7,7 @@ export default function Featured({ items = [] }) {
 
   return (
     <div className={styles.featured}>
-      <Container>
+      <Container  maxWidth="xl">
         <ImageList cols={6} variant="quilted" gap={20}>
           {items.map((item) => (
             <ImageListItem

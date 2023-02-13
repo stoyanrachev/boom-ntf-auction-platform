@@ -11,6 +11,7 @@ import {
 import Card from "../card/Card";
 
 export default function Trending({ cards = [] }) {
+  /*
   const cardsArr = [
     {
       name: "Ivy",
@@ -61,6 +62,7 @@ export default function Trending({ cards = [] }) {
       currency: "ETH",
     },
   ];
+  */
   return (
     <div className={styles.wrapper}>
       <Container className={styles.container} maxWidth="xl">

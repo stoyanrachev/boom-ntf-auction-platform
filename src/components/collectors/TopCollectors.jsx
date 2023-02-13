@@ -17,7 +17,7 @@ export default function TopCollectors({ collectors = [] }) {
 
   return (
     <div className={styles.topcollectors}>
-      <Container>
+      <Container maxWidth="xl">
         <Grid container>
           <Grid item xs={10}>
             <h1 className={styles.title}>Top Collectors</h1>

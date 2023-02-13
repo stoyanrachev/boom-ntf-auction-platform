@@ -5,8 +5,8 @@ import styles from "./Header.module.scss"
 
 export default function Header(){
     return (
-        <div className={styles.Header}>
-            <Container>
+        <div className={styles.header}>
+            <Container  maxWidth="xl">
                 <Grid container>
                     <Grid item  md={2}>
                         <Logo/>

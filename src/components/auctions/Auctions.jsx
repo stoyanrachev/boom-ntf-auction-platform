@@ -11,6 +11,7 @@ import {
 import Card from "../card/Card";
 
 export default function Auctions({ cards = [] }) {
+  /*
   const cardsArr = [
     {
       name: "Ivy",
@@ -65,6 +66,7 @@ export default function Auctions({ cards = [] }) {
       timeLeft: 1000000,
     },
   ];
+  */
   return (
     <div className={styles.wrapper}>
       <Container className={styles.container} maxWidth="xl">
