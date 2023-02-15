@@ -74,7 +74,6 @@ export default function Index() {
   return (
     <>
       <Header />
-      {/*{process.env.apiUrl}*/}
       <Featured items={featuredCards} />
       <Trending cards={trendingCards} />
       <TopCollectors collectors={topCollectors} />
