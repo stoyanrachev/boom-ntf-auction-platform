@@ -6,7 +6,47 @@ import { parseISO, formatDistance } from "date-fns";
 
 import { useState } from "react";
 
-export default function ProductTabs({ text, bids = [] }) {
+export default function ProductTabs({
+  text = "Beaten back with a crack not knowing what was two and frow. The education system spews out to the TAB the broken promises. Unable to find a journey in a sea of dead bolted doors behind their salvation.",
+  bids = [
+    {
+      user: {
+        avatar: "/images/avatar.png",
+        name: "Cupcat NFT 1",
+        verified: true,
+      },
+      amount: 300,
+      date: "2023-03-22T05:29:23.382Z",
+    },
+    {
+      user: {
+        avatar: "/images/avatar.png",
+        name: "Cupcat NFT 2",
+        verified: true,
+      },
+      amount: 1050,
+      date: "2023-03-22T06:29:23.382Z",
+    },
+    {
+      user: {
+        avatar: "/images/avatar.png",
+        name: "Cupcat NFT 3",
+        verified: true,
+      },
+      amount: 530,
+      date: "2023-03-22T08:29:23.382Z",
+    },
+    {
+      user: {
+        avatar: "/images/avatar.png",
+        name: "Cupcat NFT 4",
+        verified: true,
+      },
+      amount: 15000,
+      date: "2023-03-22T09:29:23.382Z",
+    },
+  ],
+}) {
   const [value, setValue] = useState("1");
   const handleTabChange = (event, newValue) => setValue(newValue);
 
