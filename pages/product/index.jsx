@@ -6,6 +6,7 @@ import ProductInfoPrice from "../../src/components/product/ProductInfoPrice";
 import ProductInfoStatus from "../../src/components/product/ProductInfoStatus";
 import ProductInfoLikes from "../../src/components/product/ProductInfoLikes";
 import ProductInfoCreator from "../../src/components/product/ProductInfoCreator";
+import ProductInfoTimer from "../../src/components/product/ProductInfoTimer";
 
 export default function Product() {
   return (
@@ -17,6 +18,7 @@ export default function Product() {
       <ProductInfoStatus />
       <ProductInfoLikes amount={100000} />
       <ProductInfoCreator name={"Creator"} avatar={"/images/avatar.png"} verified={true} />
+      <ProductInfoTimer timeEnd={"2023-12-15T11:02:08.754Z"} />
       <Footer />
     </>
   );
