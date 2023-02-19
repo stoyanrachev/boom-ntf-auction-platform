@@ -1,0 +1,62 @@
+@use "../../styles/colors.scss";
+
+.product-tabs {
+  margin: 30px 0;
+  .tab-details {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+  }
+
+  .tab-bids {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+  }
+
+  .tab-buttons {
+    border-bottom: 3px solid rgba(colors.$primary_main, 20%);
+    position: relative;
+    overflow: visible !important;
+    & > div {
+      position: absolute;
+      bottom: -3px;
+      z-index: 2;
+      & > span{
+        height: 3px;
+      }
+    }
+  }
+  .text-details {
+    padding: 30px 0 10px 0 !important;
+    font-weight: 400 !important;
+    font-size: 1rem !important;
+    line-height: 1.625rem !important;
+    color: colors.$text_secondary !important;
+  }
+
+  .bids-view {
+    padding: 0 0 15px 0 !important;
+
+    .table-row {
+      &:nth-child(odd) {
+        background-color: rgba(colors.$primary_main, 5%) !important;
+      }
+      &:nth-child(even) {
+        background-color: rgba(colors.$primary_main, 15%) !important;
+      }
+    }
+
+    .cell {
+      font-weight: 700 !important;
+      font-size: 0.875rem !important;
+      color: colors.$text_secondary !important;
+      border-bottom: none;
+    }
+
+    .bid-cell {
+      font-weight: 700 !important;
+      font-size: 0.875rem !important;
+      color: colors.$secondary_main !important;
+      border-bottom: none;
+    }
+  }
+}

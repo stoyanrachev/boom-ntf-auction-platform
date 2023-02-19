@@ -8,6 +8,7 @@ import ProductInfoLikes from "../../src/components/product/ProductInfoLikes";
 import ProductInfoCreator from "../../src/components/product/ProductInfoCreator";
 import ProductInfoTimer from "../../src/components/product/ProductInfoTimer";
 import ProductInfo from "../../src/components/product/ProductInfo";
+import ProductTabs from "../../src/components/product/ProductTabs";
 
 export default function Product() {
   return (
@@ -37,6 +38,47 @@ export default function Product() {
         timeEnd={"2023-12-15T11:02:08.754Z"}
         onTimeEnd={null}
         isLive={true}
+      />
+      <ProductTabs
+        text="Lorem"
+        bids={[
+          {
+            user: {
+              avatar: "/images/avatar.png",
+              name: "hrisi",
+              verified: true,
+            },
+            amount: 30,
+            date: "2021-10-22T08:29:23.382Z",
+          },
+          {
+            user: {
+              avatar: "/images/avatar.png",
+              name: "maxi",
+              verified: true,
+            },
+            amount: 1000,
+            date: "2021-10-22T08:29:23.382Z",
+          },
+          {
+            user: {
+              avatar: "/images/avatar.png",
+              name: "hrisi",
+              verified: true,
+            },
+            amount: 30,
+            date: "2021-10-22T08:29:23.382Z",
+          },
+          {
+            user: {
+              avatar: "/images/avatar.png",
+              name: "maxi",
+              verified: true,
+            },
+            amount: 1000,
+            date: "2021-10-22T08:29:23.382Z",
+          },
+        ]}
       />
       <Footer />
     </>
