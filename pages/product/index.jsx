@@ -9,6 +9,7 @@ import ProductInfoCreator from "../../src/components/product/ProductInfoCreator"
 import ProductInfoTimer from "../../src/components/product/ProductInfoTimer";
 import ProductInfo from "../../src/components/product/ProductInfo";
 import ProductTabs from "../../src/components/product/ProductTabs";
+import ProductActions from "../../src/components/product/ProductActions";
 
 export default function Product() {
   return (
@@ -79,6 +80,14 @@ export default function Product() {
             date: "2021-10-22T08:29:23.382Z",
           },
         ]}
+      />
+      <ProductActions
+        isLive={true}
+        buyAmount={30}
+        bidAmount={20}
+        currency={"ETH"}
+        onBuy={null}
+        onBid={null}
       />
       <Footer />
     </>

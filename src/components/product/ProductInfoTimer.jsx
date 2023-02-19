@@ -3,9 +3,13 @@ import Countdown from "react-countdown";
 
 export default function ProductInfoTimer({ timeEnd = null, onTimeEnd }) {
   return (
-    <>
+    <div>
       {timeEnd !== null && (
-        <div className={`${styles["product-info-timer"]} ${styles.active}`}>
+        <div
+          className={`${styles["product-info-timer"]} ${
+            timeEnd !== null && styles.active
+          }`}
+        >
           <div className={styles.header}>
             <div className={styles.title}>Ends in</div>
           </div>
@@ -22,6 +26,6 @@ export default function ProductInfoTimer({ timeEnd = null, onTimeEnd }) {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
