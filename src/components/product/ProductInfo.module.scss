@@ -1,0 +1,16 @@
+@use "../../styles/colors.scss";
+
+.product-info {
+    .line {
+        height: 3px;
+        background-color: rgba(colors.$primary_main, 20%);
+        border:none;
+    }
+
+    .stats {
+        margin-top: 0.8rem;
+        margin-bottom: 27px;
+        display: flex;
+        align-items: center;
+    }
+}

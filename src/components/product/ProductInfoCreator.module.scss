@@ -1,0 +1,23 @@
+@use "../../styles/colors.scss";
+
+.product-info-creator {
+  background-color: colors.$background_paper;
+  border-radius: 15px;
+
+  .title-container {
+    background-color: rgba(colors.$primary_main, 10%);
+    padding: 10px 27px;
+
+    .title {
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 600;
+      line-height: 1.375rem;
+      margin: 0;
+    }
+  }
+
+  .user-container {
+    padding: 23px 27px;
+  }
+}

@@ -1,0 +1,7 @@
+@use "../../styles/colors.scss";
+
+.product-info-price {
+  color: colors.$text_secondary;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}

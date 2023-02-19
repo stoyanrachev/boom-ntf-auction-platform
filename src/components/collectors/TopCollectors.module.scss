@@ -1,7 +1,8 @@
-@use "../../styles/colors";
+@use "../../styles/colors.scss";
 
-.wrapper {
-  margin-bottom: 50px;
+.topcollectors {
+    background-color: rgba(colors.$primary_main, 10%);
+    padding-bottom: 100px;
 }
 
 .select {
