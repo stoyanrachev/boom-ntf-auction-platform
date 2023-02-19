@@ -22,7 +22,7 @@ export default function ProductTabs({ text, bids = [] }) {
           <Tab label={"Details"} value="1" className={styles["tab-details"]} />
           <Tab label={"Bids"} value="2" className={styles["tab-bids"]} />
         </TabList>
-        
+
         <TabPanel value="1" className={styles["text-details"]}>
           {text}
         </TabPanel>
