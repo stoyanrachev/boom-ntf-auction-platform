@@ -23,31 +23,7 @@ export default function ProductTabs({ text, bids = [] }) {
           <Tab label={"Bids"} value="2" className={styles["tab-bids"]} />
         </TabList>
 
-        <TabPanel value="1" className={styles["text-details"]}>
-          {text}
-        </TabPanel>
-        <TabPanel value="2" className={styles["bids-view"]}>
-          <Table area-label={"product details table"}>
-            <TableBody>
-              {bids.map((bid, i) => (
-                <TableRow
-                  className={`table-row-${i} ${styles["table-row"]}`}
-                  key={i}
-                >
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <User {...bid.user} size={34} />
-                  </TableCell>
-                  <TableCell className={styles["bid-cell"]}>
-                    {bid.amount}
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {formatDistance(parseISO(bid.date), Date.now())}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TabPanel>
+
       </TabContext>
     </div>
   );
