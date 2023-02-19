@@ -1,50 +1,76 @@
-import styles from "./ProductTabs.module.scss";
-import User from "../user/User";
-import { Tab, TableBody, Table, TableRow, TableCell } from "@mui/material";
+import { useState } from "react";
+import { Tab, Table, TableBody, TableCell, TableRow } from "@mui/material";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import { parseISO, formatDistance } from "date-fns";
-
-import { useState } from "react";
+import User from "../user/User";
+import classNames from "classnames";
+import styles from "./ProductTabs.module.scss";
 
 export default function ProductTabs({ text, bids = [] }) {
   const [value, setValue] = useState("1");
-  const handleTabChange = (event, newValue) => setValue(newValue);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   return (
-    <div className={styles["product-tabs"]}>
+    <div className={classNames(styles["product-tabs"])}>
       <TabContext value={value}>
         <TabList
-          value={value}
-          onChange={handleTabChange}
+          onChange={handleChange}
           area-label={"product tabs"}
-          className={styles["tab-buttons"]}
+          sx={{ marginBottom: "-3px" }}
         >
-          <Tab label={"Details"} value="1" className={styles["tab-details"]} />
-          <Tab label={"Bids"} value="2" className={styles["tab-bids"]} />
+          <Tab
+            className={classNames(styles["tab-details"])}
+            label="DETAILS"
+            value="1"
+          />
+          <Tab
+            className={classNames(styles["tab-bids"])}
+            label="BIDS"
+            value="2"
+          />
         </TabList>
-
-        <TabPanel value="1" className={styles["text-details"]}>
+        <TabPanel
+          className={styles["text-details"]}
+          sx={{ paddingLeft: 0 }}
+          value="1"
+        >
           {text}
         </TabPanel>
-        <TabPanel value="2" className={styles["bids-view"]}>
-          <Table area-label={"product details table"}>
+        <TabPanel value="2" sx={{ paddingX: 0 }}>
+          <Table>
             <TableBody>
-              {bids.map((bid, i) => (
-                <TableRow
-                  className={`table-row-${i} ${styles["table-row"]}`}
-                  key={i}
-                >
-                  <TableCell sx={{ borderBottom: "none" }}>
-                    <User {...bid.user} size={34} />
-                  </TableCell>
-                  <TableCell className={styles["bid-cell"]}>
-                    {bid.amount}
-                  </TableCell>
-                  <TableCell className={styles.cell}>
-                    {formatDistance(parseISO(bid.date), Date.now())}
-                  </TableCell>
-                </TableRow>
-              ))}
+              {bids.map((bid, idx) => {
+                return (
+                  <TableRow
+                    className={`table-row-${idx} ${styles["table-row"]}`}
+                    key={idx}
+                  >
+                    <TableCell className={classNames(styles.cell)}>
+                      <User
+                        name={bid.user.name}
+                        verified={bid.user.verified}
+                        avatar={bid.user.avatar}
+                        size={45}
+                      />
+                    </TableCell>
+                    <TableCell
+                      className={classNames(styles["bid-cell"])}
+                      align="center"
+                    >
+                      {bid.amount}
+                    </TableCell>
+                    <TableCell
+                      className={classNames(styles.cell)}
+                      align="center"
+                    >
+                      {formatDistance(parseISO(bids[0].date), Date.now())} ago
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </TabPanel>
