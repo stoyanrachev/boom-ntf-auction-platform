@@ -10,85 +10,13 @@ import ProductInfoTimer from "../../src/components/product/ProductInfoTimer";
 import ProductInfo from "../../src/components/product/ProductInfo";
 import ProductTabs from "../../src/components/product/ProductTabs";
 import ProductActions from "../../src/components/product/ProductActions";
+import ProductContainer from "../../src/components/product/ProductContainer";
 
 export default function Product() {
   return (
     <>
       <Header />
-      <ProductImage url="/images/nft.jpg" />
-      <ProductInfoTitle text="Shallow Son" />
-      <ProductInfoPrice amount={"3"} currency={"ETH"} />
-      <ProductInfoStatus />
-      <ProductInfoLikes amount={100000} />
-      <ProductInfoCreator
-        name={"Creator"}
-        avatar={"/images/avatar.png"}
-        verified={true}
-      />
-      <ProductInfoTimer timeEnd={"2023-12-15T11:02:08.754Z"} />
-      <ProductInfo
-        title={"name"}
-        creator={{
-          name: "creator name",
-          avatar: "/images/avatar.png",
-          verified: true,
-        }}
-        price={10}
-        currency={"ETH"}
-        likes={1000}
-        timeEnd={"2023-12-15T11:02:08.754Z"}
-        onTimeEnd={null}
-        isLive={true}
-      />
-      <ProductTabs
-        text="Lorem"
-        bids={[
-          {
-            user: {
-              avatar: "/images/avatar.png",
-              name: "hrisi",
-              verified: true,
-            },
-            amount: 30,
-            date: "2021-10-22T08:29:23.382Z",
-          },
-          {
-            user: {
-              avatar: "/images/avatar.png",
-              name: "maxi",
-              verified: true,
-            },
-            amount: 1000,
-            date: "2021-10-22T08:29:23.382Z",
-          },
-          {
-            user: {
-              avatar: "/images/avatar.png",
-              name: "hrisi",
-              verified: true,
-            },
-            amount: 30,
-            date: "2021-10-22T08:29:23.382Z",
-          },
-          {
-            user: {
-              avatar: "/images/avatar.png",
-              name: "maxi",
-              verified: true,
-            },
-            amount: 1000,
-            date: "2021-10-22T08:29:23.382Z",
-          },
-        ]}
-      />
-      <ProductActions
-        isLive={true}
-        buyAmount={30}
-        bidAmount={20}
-        currency={"ETH"}
-        onBuy={null}
-        onBid={null}
-      />
+
       <Footer />
     </>
   );
