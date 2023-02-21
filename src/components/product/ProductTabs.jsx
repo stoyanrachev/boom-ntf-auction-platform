@@ -53,6 +53,7 @@ export default function ProductTabs({
 
   return (
     <div className={styles["product-tabs"]}>
+      {/* 
       <TabContext value={value}>
         <TabList
           value={value}
@@ -90,6 +91,7 @@ export default function ProductTabs({
           </Table>
         </TabPanel>
       </TabContext>
+      */}
     </div>
   );
 }
