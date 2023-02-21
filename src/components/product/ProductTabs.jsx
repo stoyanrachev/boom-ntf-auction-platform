@@ -1,8 +1,11 @@
 import styles from "./ProductTabs.module.scss";
 import User from "../user/User";
-import { Tab, TableBody, Table, TableRow, TableCell } from "@mui/material";
+import {Table,TableBody, TableRow, TableCell } from "@mui/material";
 import TabContext from "@mui/lab/TabContext";
-import { TabList, TabPanel } from "@mui/lab";
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
 import { parseISO, formatDistance } from "date-fns";
 
 import { useState } from "react";
