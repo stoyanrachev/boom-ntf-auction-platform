@@ -12,18 +12,27 @@ import dataUsers from "../data/users.json";
 import dataNfts from "../data/nfts.json";
 
 export default function Index() {
-  const [featuredCards, setFeaturedCards] = useState([]);
   const [trendingCards, setTrendingCards] = useState([]);
   const [topCollectors, setTopCollectors] = useState([]);
   const [nfts, setNfts] = useState([]);
 
+  //FEATURED
+
+  const [featuredCards, setFeaturedCards] = useState([]);
+  useEffect(async () => {
+    const result = await fetch(process.env.apiUrl + "/featured");
+    const featuredData = await result.json();
+    setFeaturedCards(featuredData.nfts);
+  }, []);
+
   useEffect(() => {
+    /*
     const processedFeatured = dataFeatured.map((card) => {
       return { image: card.source.url };
     });
     processedFeatured[0] = { ...processedFeatured[0], cols: 3, rows: 2 };
     setFeaturedCards(processedFeatured);
-
+*/
     setTrendingCards(
       dataTrending.map((card) => {
         return {

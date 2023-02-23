@@ -20,7 +20,7 @@ export default function Featured({ items = [] }) {
                 src={item.image}
                 onClick={() => {
                   router.push({
-                    pathname: `${item.href}`,
+                    pathname: `/product/${item.id}`,
                   });
                 }}
               />
