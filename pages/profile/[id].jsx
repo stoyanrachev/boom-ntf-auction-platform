@@ -1,0 +1,56 @@
+import Header from "../../src/components/header/Header";
+import ProfileHero from "../../src/components/profile/ProfileHero";
+import ProfileUser from "../../src/components/profile/ProfileUser";
+import ProfileCollection from "../../src/components/profile/ProfileCollection";
+import Footer from "../../src/components/footer/Footer";
+import dataProfile from "../../data/profile.json";
+import dataFiltersProfile from "../../data/filtersProfile.json";
+import { useState, useEffect, Fragment } from "react";
+
+export default function Profile() {
+  const [profile, setProfile] = useState(null);
+  const [filters, setFilters] = useState(null);
+
+  useEffect(() => {
+    setFilters({ ...dataFiltersProfile });
+
+    setProfile({
+      image: "images/nft.jpg",
+      name: dataProfile.username,
+      info: "Duis labore eiusmod proident consequat et exercitation sint cupidatat ullamco esse minim. Ea dolore enim Lorem nostrud ea pariatur nisi Lorem eu. Consequat consectetur voluptate incididunt deserunt officia.",
+      avatar: dataProfile.avatar.url,
+      verified: dataProfile.verified,
+      user: {
+        verified: dataProfile.verified,
+        avatar: dataProfile.avatar.url,
+      },
+      items: [...dataProfile.nfts],
+      filters: filters,
+    });
+  }, []);
+
+  return (
+    <>
+      <Header />
+      {filters && profile && (
+        <Fragment>
+          <ProfileHero image={profile.image} />
+
+          <ProfileUser
+            name={profile.name}
+            info={profile.info}
+            avatar={profile.avatar}
+            verified={profile.verified}
+          />
+
+          <ProfileCollection
+            user={profile.user}
+            filters={filters}
+            items={profile.items}
+          />
+        </Fragment>
+      )}
+      <Footer />
+    </>
+  );
+}

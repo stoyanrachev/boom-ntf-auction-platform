@@ -17,7 +17,7 @@ export default function Product() {
   }, [router]);
 
   return (
-    <div>
+    <>
       <Header />
       {dataNft && (
         <ProductContainer
@@ -78,6 +78,6 @@ export default function Product() {
         />
       )}
       <Footer />
-    </div>
+    </>
   );
 }
