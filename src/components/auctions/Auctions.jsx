@@ -10,7 +10,12 @@ import {
 
 import Card from "../card/Card";
 
-export default function Auctions({ cards = [] }) {
+export default function Auctions({
+  cards = [],
+  filters = [],
+  onChange,
+  filterValue,
+}) {
   /*
   const cardsArr = [
     {
@@ -82,10 +87,20 @@ export default function Auctions({ cards = [] }) {
           <Grid item sx={{ minWidth: 220 }}>
             <FormControl fullWidth className={styles.select} size={"small"}>
               <InputLabel id="select-label">Sort By</InputLabel>
-              <Select labelId="select-label">
-                <MenuItem value="Today">Today</MenuItem>
-                <MenuItem value="This week">This week</MenuItem>
-                <MenuItem value="This month">This month</MenuItem>
+              <Select
+                id="select-label"
+                defaultValue={0}
+                value={filterValue}
+                onChange={onChange}
+              >
+                <MenuItem value={0}>All items</MenuItem>
+                {filters.map((item, index) => {
+                  return (
+                    <MenuItem key={index} value={item.value}>
+                      {item.label}
+                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
           </Grid>

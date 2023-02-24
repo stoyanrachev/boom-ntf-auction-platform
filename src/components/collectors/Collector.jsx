@@ -10,7 +10,7 @@ export default function Collector({
   id,
   type,
 }) {
-  console.log(avatar);
+ // console.log(avatar);
   return (
     <div className={styles.collector}>
       <div className={styles.container}>

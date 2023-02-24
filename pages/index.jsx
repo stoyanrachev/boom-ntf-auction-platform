@@ -12,8 +12,8 @@ import dataUsers from "../data/users.json";
 import dataNfts from "../data/nfts.json";
 
 export default function Index() {
-  const [topCollectors, setTopCollectors] = useState([]);
-  const [nfts, setNfts] = useState([]);
+  // const [topCollectors, setTopCollectors] = useState([]);
+  //const [nfts, setNfts] = useState([]);
 
   /*Featured API Call*/
   const [featuredCards, setFeaturedCards] = useState([]);
@@ -92,15 +92,49 @@ export default function Index() {
     setCollectorSortValue(e.target.value);
   }
 
+  /*Live Auctions API Call*/
+
+  const auctionFilterFunctions = {
+    1: function (e) {
+      return e.price < 0.1;
+    },
+    2: function (e) {
+      return e.price > 0.1 && el.price < 0.5;
+    },
+    3: function (e) {
+      return e.price > 0.5;
+    },
+  };
+
+  const [auctionFilterValue, setAuctionFilterValue] = useState(0);
+  const [auctions, setAuctions] = useState([]);
+  const [auctionFilters, setAuctionFilters] = useState([]);
+  useEffect(async () => {
+    const result = await fetch(process.env.apiUrl + "/live-auctions");
+    const auctionData = await result.json();
+    // console.log(auctionData);
+    setAuctionFilters(auctionData.filters.price);
+    if (auctionFilterValue !== 0) {
+      setAuctions(
+        auctionData.nfts.filter(auctionFilterFunctions[auctionFilterValue])
+      );
+    } else {
+      setAuctions(auctionData.nfts);
+    }
+  }, [auctionFilterValue]);
+
+  function onAuctionChange(e) {
+    setAuctionFilterValue(e.target.value);
+  }
+  /*
   useEffect(() => {
-    /*
+   
     const processedFeatured = dataFeatured.map((card) => {
       return { image: card.source.url };
     });
     processedFeatured[0] = { ...processedFeatured[0], cols: 3, rows: 2 };
     setFeaturedCards(processedFeatured);
-*/
-    /*
+
     setTrendingCards(
       dataTrending.map((card) => {
         return {
@@ -116,7 +150,7 @@ export default function Index() {
         };
       })
     );
-*/
+
     setNfts(
       dataNfts.map((nft) => {
         return {
@@ -132,7 +166,7 @@ export default function Index() {
         };
       })
     );
-    /*
+
     setTopCollectors(
       dataUsers
         .map((user) => {
@@ -146,9 +180,9 @@ export default function Index() {
         .sort((f, s) => f.nftsCount < s.nftsCount)
         .slice(0, 12)
     );
-*/
-  }, []);
 
+  }, []);
+*/
   return (
     <>
       <Header />
@@ -185,9 +219,14 @@ export default function Index() {
               "Let's connect your wallet to BUM, edit your profile, and begin interacting in the space.",
           },
         ]}
-        link="https://app.boom.dev"
+        link="https://app.boom.de"
       />
-      <Auctions cards={nfts} />
+      <Auctions
+        cards={auctions}
+        filters={auctionFilters}
+        onChange={onAuctionChange}
+        filterValue={auctionFilterValue}
+      />
       <Footer />
     </>
   );
