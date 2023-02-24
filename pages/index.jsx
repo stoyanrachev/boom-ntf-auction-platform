@@ -12,18 +12,54 @@ import dataUsers from "../data/users.json";
 import dataNfts from "../data/nfts.json";
 
 export default function Index() {
-  const [trendingCards, setTrendingCards] = useState([]);
   const [topCollectors, setTopCollectors] = useState([]);
   const [nfts, setNfts] = useState([]);
 
-  //FEATURED
-
+  /*Featured API Call*/
   const [featuredCards, setFeaturedCards] = useState([]);
   useEffect(async () => {
     const result = await fetch(process.env.apiUrl + "/featured");
     const featuredData = await result.json();
     setFeaturedCards(featuredData.nfts);
   }, []);
+
+  /*Trending API Call*/
+  //const [trendingCards, setTrendingCards] = useState([]);
+  const [trendingItems, setTrendingItems] = useState([]);
+  const [trendingFilterValue, setTrendingFilterValue] = useState(0);
+  const [trendingFilters, setTrendingFilters] = useState([]);
+
+  function onTrendingChange(e) {
+    setTrendingFilterValue(e.target.value);
+  }
+
+  const monthInMilliseconds = 2.6298e9;
+
+  const trendingFilterFunctions = {
+    1: function (e) {
+      return monthInMilliseconds > Date.now() - new Date(encodeURI.created_at);
+    },
+    2: function (e) {
+      return monthInMilliseconds * 12 > Date.now() - new Date(e.created_at);
+    },
+  };
+
+  useEffect(async () => {
+    const result = await fetch(process.env.apiUrl + "/trending");
+    const featuredData = await result.json();
+    //console.log(featuredData);
+    setTrendingFilters(featuredData.filters.sort);
+    if (
+      trendingFilterValue &&
+      (trendingFilterValue === 1 || trendingFilterValue === 2)
+    ) {
+      setTrendingItems(
+        featuredData.nfts.filter(trendingFilterFunctions[trendingFilterValue])
+      );
+    } else {
+      setTrendingItems(featuredData.nfts);
+    }
+  }, [trendingFilterValue]);
 
   useEffect(() => {
     /*
@@ -33,6 +69,7 @@ export default function Index() {
     processedFeatured[0] = { ...processedFeatured[0], cols: 3, rows: 2 };
     setFeaturedCards(processedFeatured);
 */
+/*
     setTrendingCards(
       dataTrending.map((card) => {
         return {
@@ -48,7 +85,7 @@ export default function Index() {
         };
       })
     );
-
+*/
     setNfts(
       dataNfts.map((nft) => {
         return {
@@ -84,7 +121,12 @@ export default function Index() {
     <>
       <Header />
       <Featured items={featuredCards} />
-      <Trending cards={trendingCards} />
+      <Trending
+        cards={trendingItems}
+        filters={trendingFilters}
+        onChange={onTrendingChange}
+        filterValue={trendingFilterValue}
+      />
       <TopCollectors collectors={topCollectors} />
       <How
         title="How it works"
