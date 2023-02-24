@@ -61,6 +61,37 @@ export default function Index() {
     }
   }, [trendingFilterValue]);
 
+  /*Top Collectors API Call*/
+
+  const collectorSortingFunctions = {
+    asc: function (a, b) {
+      return a.nftCount - b.nftCount;
+    },
+    desc: function (a, b) {
+      return b.nftCount - a.nftCount;
+    },
+  };
+
+  const [collectorSortValue, setCollectorSortValue] = useState("asc");
+  const [collectors, setCollectors] = useState([]);
+  const [collectorFilters, setcollectorFilters] = useState([]);
+  useEffect(async () => {
+    const result = await fetch(process.env.apiUrl + "/top-collectors");
+    const userData = await result.json();
+    setcollectorFilters(userData.filters.sort);
+    if (collectorSortValue) {
+      setCollectors(
+        userData.users.sort(collectorSortingFunctions[collectorSortValue])
+      );
+    } else {
+      setCollectors(userData.users);
+    }
+  }, [collectorSortValue]);
+
+  function onCollectorChange(e) {
+    setCollectorSortValue(e.target.value);
+  }
+
   useEffect(() => {
     /*
     const processedFeatured = dataFeatured.map((card) => {
@@ -69,7 +100,7 @@ export default function Index() {
     processedFeatured[0] = { ...processedFeatured[0], cols: 3, rows: 2 };
     setFeaturedCards(processedFeatured);
 */
-/*
+    /*
     setTrendingCards(
       dataTrending.map((card) => {
         return {
@@ -101,7 +132,7 @@ export default function Index() {
         };
       })
     );
-
+    /*
     setTopCollectors(
       dataUsers
         .map((user) => {
@@ -115,6 +146,7 @@ export default function Index() {
         .sort((f, s) => f.nftsCount < s.nftsCount)
         .slice(0, 12)
     );
+*/
   }, []);
 
   return (
@@ -127,7 +159,12 @@ export default function Index() {
         onChange={onTrendingChange}
         filterValue={trendingFilterValue}
       />
-      <TopCollectors collectors={topCollectors} />
+      <TopCollectors
+        collectors={collectors}
+        filters={collectorFilters}
+        onChange={onCollectorChange}
+        sortValue={collectorSortValue}
+      />
       <How
         title="How it works"
         description="Discover, collect, and sell extraordinary NFTs on the world's first and largest NFT marketplace. There are  three things you'll need in place to open your account and start buying or selling NFTs on BUM."

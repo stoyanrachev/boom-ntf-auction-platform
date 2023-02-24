@@ -10,7 +10,12 @@ import {
 } from "@mui/material";
 import _ from "lodash";
 
-export default function TopCollectors({ collectors = [] }) {
+export default function TopCollectors({
+  collectors = [],
+  filters = [],
+  onChange,
+  sortValue,
+}) {
   const indexCollectors = (colrs) =>
     colrs.map((cr, index) => Object.assign({}, cr, { id: index + 1 }));
   const chunkedCollectors = _.chunk(indexCollectors(collectors), 3);
@@ -25,10 +30,18 @@ export default function TopCollectors({ collectors = [] }) {
           <Grid item xs={2} sx={{ display: "flex" }}>
             <FormControl fullWidth className={styles.select} size="small">
               <InputLabel id="select-label">Sort By</InputLabel>
-              <Select labelId="select-label">
-                <MenuItem value="Today">Today</MenuItem>
-                <MenuItem value="This week">This week</MenuItem>
-                <MenuItem value="This month">This month</MenuItem>
+              <Select
+                labelId="select-label"
+                value={sortValue}
+                onChange={onChange}
+              >
+                {filters.map((item, index) => {
+                  return (
+                    <MenuItem key={index} value={item.value}>
+                      {item.label}
+                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
           </Grid>

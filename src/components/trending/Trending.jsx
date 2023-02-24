@@ -91,10 +91,10 @@ export default function Trending({
                 onChange={onChange}
               >
                 <MenuItem value="0">This Week</MenuItem>
-                {filters.map((list, index) => {
+                {filters.map((item, index) => {
                   return (
-                    <MenuItem key={index} value={list.value}>
-                      {list.label}
+                    <MenuItem key={index} value={item.value}>
+                      {item.label}
                     </MenuItem>
                   );
                 })}
