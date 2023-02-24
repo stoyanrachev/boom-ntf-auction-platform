@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 export default function Product() {
+  /*
   const router = useRouter();
   const id = router.query.id;
   const [dataNft, setDataNft] = useState(null);
@@ -15,10 +16,31 @@ export default function Product() {
       setDataNft(dataNfts.find((nft) => nft.id == id));
     }
   }, [router]);
+*/
 
+  const router = useRouter();
+  const { id } = router.query;
+
+  const [product, setProduct] = useState(null);
+
+  useEffect(async () => {
+    if (id) {
+      try {
+        const result = await fetch(process.env.apiUrl + `/nfts/${id}`);
+        if (result.status === 200) {
+          const productData = await result.json();
+          setProduct(productData);
+        }
+      } catch (err) {
+        res.status(500).json({ error: "failed to load data" });
+      }
+    }
+  }, [id]);
+  //console.log(product);
   return (
     <>
       <Header />
+      {/*
       {dataNft && (
         <ProductContainer
           name={dataNft.name}
@@ -75,6 +97,26 @@ export default function Product() {
           onBuy={() => {}}
           onBid={() => {}}
           onTimeEnd={() => {}}
+        />
+      )}
+
+      */}
+      {product !== null && (
+        <ProductContainer
+          name={product.name}
+          source={product.source}
+          owner={{
+            username: product.owner.username,
+            verified: product.owner.confirmed,
+            avatar: product.owner.avatar,
+            id: product.owner.id,
+          }}
+          price={product.price}
+          currency={product.currency}
+          likes={product.likes}
+          auction_end={product.auction_end}
+          details={product.details}
+          bids={product.bids}
         />
       )}
       <Footer />
