@@ -88,26 +88,26 @@ export default function Profile() {
     6: function (a, b) {
       return b.price - a.price;
     },
-    7: function (el) {
-      return el.price < 0.1;
+    7: function (e) {
+      return e.price < 0.1;
     },
-    8: function (el) {
-      return el.price >= 0.1 && el.price < 0.5;
+    8: function (e) {
+      return e.price >= 0.1 && e.price < 0.5;
     },
-    9: function (el) {
-      return el.price >= 0.5;
+    9: function (e) {
+      return e.price >= 0.5;
     },
   };
 
-  function onSortChange(ev) {
-    setSortValue(ev.target.value);
+  function onSortChange(e) {
+    setSortValue(e.target.value);
   }
-  async function onPriceChange(ev) {
-    setPriceValue(ev.target.value);
+  async function onPriceChange(e) {
+    setPriceValue(e.target.value);
   }
 
-  function inputChange(ev) {
-    const str = ev.target.value.trim().toLowerCase();
+  function inputChange(e) {
+    const str = e.target.value.trim().toLowerCase();
     setSearchString(str);
   }
 
@@ -144,7 +144,7 @@ export default function Profile() {
   useEffect(async () => {
     if (searchStr) {
       setNfts(
-        allNfts.filter((el) => el.name.toLowerCase().includes(searchStr))
+        allNfts.filter((e) => e.name.toLowerCase().includes(searchStr))
       );
     } else {
       setNfts(allNfts);

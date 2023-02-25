@@ -45,9 +45,11 @@ export default function Index() {
   };
 
   useEffect(async () => {
-    const result = await fetch(process.env.apiUrl + "/trending");
+    const result = await fetch(
+      process.env.apiUrl + "/trending?sort=" + trendingFilterValue
+    );
     const featuredData = await result.json();
-    //console.log(featuredData);
+    console.log(featuredData.filters.sort);
     setTrendingFilters(featuredData.filters.sort);
     if (
       trendingFilterValue &&
@@ -76,7 +78,9 @@ export default function Index() {
   const [collectors, setCollectors] = useState([]);
   const [collectorFilters, setcollectorFilters] = useState([]);
   useEffect(async () => {
-    const result = await fetch(process.env.apiUrl + "/top-collectors");
+    const result = await fetch(
+      process.env.apiUrl + "/top-collectors?sort=" + collectorSortValue
+    );
     const userData = await result.json();
     setcollectorFilters(userData.filters.sort);
     if (collectorSortValue) {
@@ -110,7 +114,9 @@ export default function Index() {
   const [auctions, setAuctions] = useState([]);
   const [auctionFilters, setAuctionFilters] = useState([]);
   useEffect(async () => {
-    const result = await fetch(process.env.apiUrl + "/live-auctions");
+    const result = await fetch(
+      process.env.apiUrl + "/live-auctions?sort=" + auctionFilterValue
+    );
     const auctionData = await result.json();
     // console.log(auctionData);
     setAuctionFilters(auctionData.filters.price);

@@ -75,7 +75,7 @@ export default function Explore() {
   function onSortChange(e) {
     setSortValue(e.target.value);
   }
-  function onPriceChange(e) {
+  async function onPriceChange(e) {
     setPriceValue(e.target.value);
   }
 
