@@ -22,17 +22,18 @@ export default function ActivityListItem({
 
   return (
     <div className={styles["activity-list-item"]}>
-      <Avatar size={56} url={user.avatarUrl} verified={user.verified} />
+      <Avatar size={56} url={user.avatar.url} verified={user.verified} />
       <div className={styles["activity-info"]}>
         <div className={styles.text}>
           <span className={styles.name}>{user.name}</span>
           <span> {activity} </span>
-          <Link href={"#"} className={styles.link}>
-            {nft.name}
-          </Link>
+          <Link
+            className={styles.link}
+            href={`/product/${nft.id}`}
+          >{`\"${nft.name}\"`}</Link>
           <span> by </span>
-          <Link href={"#"} className={styles.link}>
-            {nft.user.name}
+          <Link className={styles.link} href={`/profile/${nft.owner.id}`}>
+            {nft.owner.username}
           </Link>
         </div>
         <div className={styles.elapsed}>
