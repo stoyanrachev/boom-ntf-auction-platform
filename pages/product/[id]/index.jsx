@@ -40,7 +40,7 @@ export default function Product() {
   //console.log(product);
   return (
     <>
-      <Header />
+      <Header></Header>
 {/** 
       {dataNft && (
         <ProductContainer
@@ -121,7 +121,7 @@ export default function Product() {
         />
       )}
       */}
-      <Footer />
+      <Footer></Footer>
     </>
   );
 }
