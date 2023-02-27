@@ -41,7 +41,7 @@ export default function Product() {
   return (
     <>
       <Header />
-
+{/** 
       {dataNft && (
         <ProductContainer
           name={dataNft.name}
@@ -100,7 +100,7 @@ export default function Product() {
           onTimeEnd={() => {}}
         />
       )}
-
+*/}
       {/*
       {product !== null && (
         <ProductContainer
