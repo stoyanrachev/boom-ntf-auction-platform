@@ -38,7 +38,7 @@ export default function Product() {
   }, [id]);
   //console.log(product);
   return (
-    <>
+    <div>
       <Header />
       {/*
       {dataNft && (
@@ -120,6 +120,6 @@ export default function Product() {
         />
       )}
       <Footer />
-    </>
+    </div>
   );
 }
