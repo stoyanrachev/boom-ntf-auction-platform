@@ -10,7 +10,12 @@ import {
 
 import Card from "../card/Card";
 
-export default function Trending({ cards = [] }) {
+export default function Trending({
+  cards = [],
+  filters,
+  onChange,
+  filterValue,
+}) {
   /*
   const cardsArr = [
     {
@@ -78,10 +83,21 @@ export default function Trending({ cards = [] }) {
           <Grid item sx={{ minWidth: 220 }}>
             <FormControl fullWidth className={styles.select} size={"small"}>
               <InputLabel id="select-label">Sort By</InputLabel>
-              <Select labelId="select-label">
-                <MenuItem value="Today">Today</MenuItem>
-                <MenuItem value="This week">This week</MenuItem>
-                <MenuItem value="This month">This month</MenuItem>
+              <Select
+                labelId="select-label"
+                defaultValue={0}
+                value={filterValue}
+                label="Sort By"
+                onChange={onChange}
+              >
+                <MenuItem value="0">This Week</MenuItem>
+                {filters.map((item, index) => {
+                  return (
+                    <MenuItem key={index} value={item.value}>
+                      {item.label}
+                    </MenuItem>
+                  );
+                })}
               </Select>
             </FormControl>
           </Grid>

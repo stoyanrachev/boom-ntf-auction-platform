@@ -10,6 +10,7 @@ export default function Collector({
   id,
   type,
 }) {
+ // console.log(avatar);
   return (
     <div className={styles.collector}>
       <div className={styles.container}>
@@ -22,7 +23,7 @@ export default function Collector({
               name={name}
               info={nftsCount + " items"}
               size={53}
-              avatar={avatar}
+              avatar={avatar.url}
               verified={verified}
             />
           </Grid>

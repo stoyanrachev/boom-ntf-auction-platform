@@ -7,20 +7,20 @@ export default function Featured({ items = [] }) {
 
   return (
     <div className={styles.featured}>
-      <Container  maxWidth="xl">
-        <ImageList cols={6} variant="quilted" gap={20}>
-          {items.map((item) => (
+      <Container maxWidth="xl">
+        <ImageList cols={6} rows={2} variant="quilted" gap={20} rowHeight={226}>
+          {items.map((item, key) => (
             <ImageListItem
               key={item.image}
-              cols={item.cols || 1}
-              rows={item.rows || 1}
+              cols={key === 0 ? 3 : 1}
+              rows={key === 0 ? 2 : 1}
             >
               <img
                 className={styles.image}
                 src={item.image}
                 onClick={() => {
                   router.push({
-                    pathname: `${item.href}`,
+                    pathname: `/product/${item.id}`,
                   });
                 }}
               />

@@ -21,8 +21,15 @@
     color: colors.$secondary_main !important;
   }
 }
+.relative {
+  position: relative;
+  padding: 0 15px;
+  height: 286px;
+}
+
 .media {
   border-radius: 15px;
+  height: 100%;
 }
 .price {
   color: colors.$secondary_main !important;
@@ -33,10 +40,6 @@
   display: flex;
 }
 
-.relative {
-  position: relative;
-  padding: 0 15px;
-}
 
 .badge {
   position: absolute !important;

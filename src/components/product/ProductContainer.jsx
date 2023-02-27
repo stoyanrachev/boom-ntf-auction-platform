@@ -3,7 +3,7 @@ import ProductImage from "./ProductImage";
 import ProductInfo from "./ProductInfo";
 import ProductTabs from "./ProductTabs";
 import ProductActions from "./ProductActions";
-import { Grid, Container } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 export default function ProductContainer({
   name,
@@ -24,7 +24,7 @@ export default function ProductContainer({
 }) {
   return (
     <div className={styles["product-container"]}>
-      <Container maxWidth="xl">
+      <Container className={styles.container} maxWidth="xl">
         <Grid container spacing={8}>
           <Grid item xs={6}>
             <ProductImage url={source.url} />

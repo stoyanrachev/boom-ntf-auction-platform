@@ -55,15 +55,15 @@ export default function Cart({
           container
           direction="row"
           justifyContent="space-between"
-          alignItems="center"
+          alignItems="baseline"
         >
-          <Grid item>
+          <Grid item xs={9}>
             <div className={styles.title}>{name}</div>
             <div className={styles.price}>
               ~{price} {currency}
             </div>
           </Grid>
-          <Grid item>
+          <Grid item xs={3}>
             <Chip
               className={styles.likes}
               icon={<FavoriteIcon className={styles.heart} />}
