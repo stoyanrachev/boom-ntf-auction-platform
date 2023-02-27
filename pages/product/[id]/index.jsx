@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 export default function Product() {
-  /*
   const router = useRouter();
   const id = router.query.id;
   const [dataNft, setDataNft] = useState(null);
@@ -16,8 +15,8 @@ export default function Product() {
       setDataNft(dataNfts.find((nft) => nft.id == id));
     }
   }, [router]);
-*/
 
+  /*
   const router = useRouter();
   const { id } = router.query;
 
@@ -36,11 +35,13 @@ export default function Product() {
       }
     }
   }, [id]);
+
+  */
   //console.log(product);
   return (
-    <div>
+    <>
       <Header />
-      {/*
+
       {dataNft && (
         <ProductContainer
           name={dataNft.name}
@@ -100,7 +101,7 @@ export default function Product() {
         />
       )}
 
-      */}
+      {/*
       {product !== null && (
         <ProductContainer
           name={product.name}
@@ -119,7 +120,8 @@ export default function Product() {
           bids={product.bids}
         />
       )}
+      */}
       <Footer />
-    </div>
+    </>
   );
 }
