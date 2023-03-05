@@ -9,17 +9,14 @@ export default function Product() {
   const router = useRouter();
   const id = router.query.id;
   const [dataNft, setDataNft] = useState(null);
-
   useEffect(() => {
     if (router.isReady) {
       setDataNft(dataNfts.find((nft) => nft.id == id));
     }
   }, [router]);
-
   return (
     <>
       <Header />
-
       {dataNft && (
         <ProductContainer
           name={dataNft.name}
