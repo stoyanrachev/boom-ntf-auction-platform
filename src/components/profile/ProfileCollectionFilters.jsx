@@ -12,7 +12,7 @@ import { Search } from "@mui/icons-material";
 
 import { useState } from "react";
 
-function ProfileCollectionFilters_OLD({ filters }) {
+export default  function ProfileCollectionFilters({ filters }) {
   const [filterValue, setFilterValue] = useState("");
   const [priceRangeValue, setPriceRangeValue] = useState("");
 
@@ -69,7 +69,7 @@ function ProfileCollectionFilters_OLD({ filters }) {
   );
 }
 
-export default function ProfileCollectionFilters({
+function ProfileCollectionFilters_After({
   filters,
   sortValue,
   priceValue,
