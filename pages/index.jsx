@@ -49,7 +49,7 @@ export default function Index() {
       process.env.apiUrl + "/trending?sort=" + trendingFilterValue
     );
     const featuredData = await result.json();
-    console.log(featuredData.filters.sort);
+    
     setTrendingFilters(featuredData.filters.sort);
     if (
       trendingFilterValue &&
