@@ -123,7 +123,7 @@ export default function Activity() {
     <>
       <Header />
       <Hero text={"Activity"} />
-      {activityFilters && (
+      
         <ActivityFilters
           filters={activityFilters}
           sortValue={sortValue}
@@ -132,7 +132,7 @@ export default function Activity() {
           onTypeChange={onTypeChange}
           onTextFieldChange={inputChange}
         />
-      )}
+   
       <ActivityList items={activity} />
       <Footer />
     </>
