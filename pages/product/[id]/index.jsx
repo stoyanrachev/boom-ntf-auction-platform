@@ -11,9 +11,15 @@ export default function Product() {
   const [product, setProduct] = useState(null);
   useEffect(async () => {
     if (id) {
-      const result = await fetch(process.env.apiUrl + `/nfts/${id}`);
-      const productData = await result.json();
-      setProduct(productData);
+      try {
+        const result = await fetch(process.env.apiUrl + `/nfts/${id}`);
+        if (result.status === 200) {
+          const productData = await result.json();
+          setProduct(productData);
+        }
+      } catch (err) {
+        res.status(500).json({ error: "failed to load data" });
+      }
     }
   }, [id]);
   return (
