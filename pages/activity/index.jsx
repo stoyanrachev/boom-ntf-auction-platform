@@ -19,11 +19,16 @@ export default function Activity() {
           user: {
             name: activity.user.username,
             verified: activity.user.verified,
-            avatarUrl: activity.user.avatar.url,
+            avatar: {
+              url: activity.user.avatar.url,
+            },
           },
           created_at: activity.created_at,
           nft: {
             name: activity.nft.name,
+            owner: {
+              id: activity.nft.owner.id,
+            },
             user: {
               name: activity.nft.owner.username,
               avatarUrl: activity.nft.owner.avatar.url,
