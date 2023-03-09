@@ -2,7 +2,7 @@ import styles from "./ActivityList.module.scss";
 import ActivityListItem from "./ActivityListItem";
 import { Container, Stack } from "@mui/material";
 
-/*
+
 export default function ActivityList({ items = [] }) {
   return (
     <div className={styles["activity-list"]}>
@@ -16,9 +16,9 @@ export default function ActivityList({ items = [] }) {
     </div>
   );
 }
-*/
 
-export default function ActivityList({items = []}) {
+
+function ActivityList_After({items = []}) {
   return(
       <div className={styles["activity-list"]}>
           <Stack direction={"column"} spacing={2} alignItems='center'>
