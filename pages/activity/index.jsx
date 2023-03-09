@@ -8,7 +8,7 @@ import dataActivityFilters from "../../data/filtersActivity.json";
 
 import { useEffect, useState } from "react";
 
-export default function Activity() {
+function Activity_OLD() {
   const [activities, setActivities] = useState(null);
   const [filters, setFilters] = useState(null);
 
@@ -50,7 +50,7 @@ export default function Activity() {
 }
 
 
-function Activity_After() {
+export default function Activity() {
   const [allActivities, getAllActivity] = useState([]);
   const [activity, setActivity] = useState([]);
   const [activityFilters, setActivityFilters] = useState(null);
