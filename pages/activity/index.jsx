@@ -7,7 +7,7 @@ import dataActivity from "../../data/activity.json";
 import dataActivityFilters from "../../data/filtersActivity.json";
 
 import { useEffect, useState } from "react";
-/*
+
 export default function Activity() {
   const [activities, setActivities] = useState(null);
   const [filters, setFilters] = useState(null);
@@ -48,9 +48,9 @@ export default function Activity() {
     </div>
   );
 }
-*/
 
-export default function Activity() {
+
+function Activity_After() {
   const [allActivities, getAllActivity] = useState([]);
   const [activity, setActivity] = useState([]);
   const [activityFilters, setActivityFilters] = useState(null);
