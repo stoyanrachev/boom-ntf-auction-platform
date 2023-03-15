@@ -54,8 +54,6 @@ function Activity_OLD() {
   );
 }
 
-
-
 export default function Activity() {
   const [allActivities, getAllActivity] = useState([]);
   const [activity, setActivity] = useState([]);
@@ -105,7 +103,18 @@ export default function Activity() {
   }
 
   useEffect(async () => {
-    const result = await fetch(process.env.apiUrl + "/activities");
+    let addToAPIUrl = "";
+    if (sortValue && typeValue) {
+      addToAPIUrl = "?sort=" + sortValue + "&type=" + priceValue;
+    } else if (sortValue) {
+      addToAPIUrl = "?sort=" + sortValue;
+    } else if (typeValue) {
+      addToAPIUrl = "?type=" + typeValue;
+    }
+
+    const result = await fetch(
+      process.env.apiUrl + "/activities" + addToAPIUrl
+    );
     const activityData = await result.json();
     getAllActivity(activityData.activities);
     setActivityFilters(activityData.filters);
