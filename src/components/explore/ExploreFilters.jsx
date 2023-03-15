@@ -13,7 +13,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { useState } from "react";
 
 
-export default function ExploreFilters({ filters }) {
+function ExploreFilters_OLD({ filters }) {
   const [sortBy, setSortBy] = useState("");
   const [priceRange, setPriceRange] = useState("");
 
@@ -75,7 +75,7 @@ export default function ExploreFilters({ filters }) {
 }
 
 
-function ExploreFilters_After({
+export default function ExploreFilters({
   filters,
   sortValue,
   priceValue,
