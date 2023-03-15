@@ -60,9 +60,16 @@ export default function Explore() {
   }
 
   useEffect(async () => {
-    const result = await fetch(
-      process.env.apiUrl + "/explore" + "?sort=" + sortValue
-    );
+    let addToAPIUrl = "";
+    if (sortValue && priceValue) {
+      addToAPIUrl = "?sort=" + sortValue + "&price=" + priceValue;
+    } else if (sortValue) {
+      addToAPIUrl = "?sort=" + sortValue;
+    } else if (sortValue) {
+      addToAPIUrl = "?price=" + priceValue;
+    }
+
+    const result = await fetch(process.env.apiUrl + "/explore" + addToAPIUrl);
     const exploreData = await result.json();
     setNftFilters(exploreData.filters);
     getAllNfts(exploreData.nfts);
