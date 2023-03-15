@@ -10,31 +10,6 @@ import dataNfts from "../../data/nfts.json";
 import { useState, useEffect } from "react";
 
 export default function Explore() {
-  /*
-  const [filters, setFilters] = useState(null);
-  const [nfts, setNfts] = useState(null);
-
-  useEffect(() => {
-    setFilters(dataFiltersExplore);
-    setNfts(
-      dataNfts.map((nft) => {
-        return {
-          name: nft.name,
-          likes: nft.likes,
-          mediaUrl: nft.source.url,
-          user: {
-            avatar: {
-              url: nft.owner.avatar.url,
-            },
-          },
-          price: nft.price,
-          currency: nft.currency,
-        };
-      })
-    );
-  }, []);
-*/
-
   const [allNfts, getAllNfts] = useState([]);
   const [nfts, setNfts] = useState([]);
   const [nftFilters, setNftFilters] = useState(null);
@@ -129,7 +104,6 @@ export default function Explore() {
             <ExploreTitle text={"Explore"} />
           </Grid>
           <Grid item xs={9}>
-            {/*{filters && <ExploreFilters filters={filters} />}*/}
             {nftFilters && (
               <ExploreFilters
                 filters={nftFilters}
