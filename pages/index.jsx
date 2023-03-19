@@ -111,7 +111,7 @@ export default function Index() {
   const [auctionFilters, setAuctionFilters] = useState([]);
   useEffect(async () => {
     const result = await fetch(
-      process.env.apiUrl + "/live-auctions?sort=" + auctionFilterValue
+      process.env.apiUrl + "/live-auctions"
     );
     const auctionData = await result.json();
     setAuctionFilters(auctionData.filters.price);
