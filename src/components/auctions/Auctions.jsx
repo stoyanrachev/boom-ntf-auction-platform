@@ -16,62 +16,6 @@ export default function Auctions({
   onChange,
   filterValue,
 }) {
-  /*
-  const cardsArr = [
-    {
-      name: "Ivy",
-      user: {
-        avatar: {
-          url: "/images/avatar.png",
-        },
-        verified: true,
-      },
-      mediaUrl: "images/nft.jpg",
-      price: 1,
-      currency: "ETH",
-      timeLeft: 1000000,
-    },
-    {
-      name: "Judie",
-      user: {
-        avatar: {
-          url: "/images/avatar.png",
-        },
-        verified: true,
-      },
-      mediaUrl: "images/nft.jpg",
-      price: 2.3,
-      currency: "ETH",
-      timeLeft: 1000000,
-    },
-    {
-      name: "Juniper",
-      user: {
-        avatar: {
-          url: "/images/avatar.png",
-        },
-        verified: true,
-      },
-      mediaUrl: "images/nft.jpg",
-      price: 5,
-      currency: "ETH",
-      timeLeft: 1000000,
-    },
-    {
-      name: "Maple",
-      user: {
-        avatar: {
-          url: "/images/avatar.png",
-        },
-        verified: true,
-      },
-      mediaUrl: "images/nft.jpg",
-      price: 10,
-      currency: "ETH",
-      timeLeft: 1000000,
-    },
-  ];
-  */
   return (
     <div className={styles.wrapper}>
       <Container className={styles.container} maxWidth="xl">
