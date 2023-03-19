@@ -12,9 +12,6 @@ import dataUsers from "../data/users.json";
 import dataNfts from "../data/nfts.json";
 
 export default function Index() {
-  // const [topCollectors, setTopCollectors] = useState([]);
-  //const [nfts, setNfts] = useState([]);
-
   /*Featured API Call*/
   const [featuredCards, setFeaturedCards] = useState([]);
   useEffect(async () => {
@@ -24,7 +21,6 @@ export default function Index() {
   }, []);
 
   /*Trending API Call*/
-  //const [trendingCards, setTrendingCards] = useState([]);
   const [trendingItems, setTrendingItems] = useState([]);
   const [trendingFilterValue, setTrendingFilterValue] = useState(0);
   const [trendingFilters, setTrendingFilters] = useState([]);
@@ -49,7 +45,7 @@ export default function Index() {
       process.env.apiUrl + "/trending?sort=" + trendingFilterValue
     );
     const featuredData = await result.json();
-    
+
     setTrendingFilters(featuredData.filters.sort);
     if (
       trendingFilterValue &&
@@ -118,7 +114,6 @@ export default function Index() {
       process.env.apiUrl + "/live-auctions?sort=" + auctionFilterValue
     );
     const auctionData = await result.json();
-    // console.log(auctionData);
     setAuctionFilters(auctionData.filters.price);
     if (auctionFilterValue !== 0) {
       setAuctions(
@@ -132,63 +127,6 @@ export default function Index() {
   function onAuctionChange(e) {
     setAuctionFilterValue(e.target.value);
   }
-  /*
-  useEffect(() => {
-   
-    const processedFeatured = dataFeatured.map((card) => {
-      return { image: card.source.url };
-    });
-    processedFeatured[0] = { ...processedFeatured[0], cols: 3, rows: 2 };
-    setFeaturedCards(processedFeatured);
-
-    setTrendingCards(
-      dataTrending.map((card) => {
-        return {
-          name: card.name,
-          likes: card.likes,
-          mediaUrl: card.source.url,
-          user: {
-            avatar: { url: card.owner.avatar.url },
-            verified: card.owner.verified,
-          },
-          price: card.price,
-          currency: card.currency,
-        };
-      })
-    );
-
-    setNfts(
-      dataNfts.map((nft) => {
-        return {
-          name: nft.name,
-          likes: nft.likes,
-          mediaUrl: nft.source.url,
-          user: {
-            avatar: { url: nft.owner.avatar.url },
-          },
-          price: nft.price,
-          currency: nft.currency,
-          timeLeft: Math.abs(Date.parse(nft.auction_end) - Date.now()),
-        };
-      })
-    );
-
-    setTopCollectors(
-      dataUsers
-        .map((user) => {
-          return {
-            name: user.username,
-            nftsCount: user.nfts.length,
-            avatar: user.avatar.url,
-            verified: user.verified,
-          };
-        })
-        .sort((f, s) => f.nftsCount < s.nftsCount)
-        .slice(0, 12)
-    );
-
-  }, []);
-*/
   return (
     <>
       <Header />
